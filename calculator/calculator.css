@@ -1,0 +1,32 @@
+.key-input-gray {
+    text-align: center;
+    background-color: gray;
+}
+
+.key-input {
+    color: black;
+    text-align: center;
+    background-color: beige
+}
+
+.key {
+    height: 50px;
+    padding-top: auto;
+    padding-bottom: auto;
+}
+
+.return {
+    background-color: darkturquoise;
+}
+
+.top {
+    padding-top: 100px;
+}
+
+.height {
+    height: 70px;
+}
+
+.setting {
+    margin-top: 15px;
+}

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="calculator.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row top">
+            <div class="col-3">
+
+                <p id="islem"></p>
+
+            </div>
+            <div class="col-6  bg-warning text-white">
+                <div class="row">
+                    <div class="col-12 height   ">
+                        <div class="form-group">
+                            <input type="number" class="form-control setting" id="result"
+                                placeholder="Birinci Sayıyı Giriniz" onkeypress="return tusaBasildi(event)" autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 key">
+                        <button class="btn btn-large key-input-gray btn-block ">(</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btn-large key-input-gray btn-block ">)</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnOpt btn-large key-input-gray btn-block ">%</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button onclick="sifirla()" class="btn btn-large key-input-gray btn-block ">AC</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 key">
+                        <button class="btn btnRakam btn-large key-input btn-block ">7</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnRakam btn-large key-input btn-block ">8</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnRakam btn-large key-input btn-block ">9</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnOpt btn-large key-input-gray btn-block ">/</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 key">
+                        <button class="btn btnRakam btn-large key-input btn-block">4</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnRakam btn-large key-input btn-block">5</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnRakam btn-large key-input btn-block">6</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnOpt btn-large key-input-gray btn-block ">*</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 key">
+                        <button class="btn btnRakam btn-large key-input btn-block ">1</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnRakam btn-large key-input btn-block ">2</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnRakam btn-large key-input btn-block ">3</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnOpt btn-large key-input-gray btn-block  ">-</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 key">
+                        <button class="btn btnRakam btn-large key-input btn-block ">0</button>
+
+                    </div>
+                    <div class="col-3 key">
+                        <button onclick="noktayaBasildi()" class="btn btn-large key-input btn-block ">.</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button onclick="sonucGoster()" class="btn btn-large key-input btn-block return">=</button>
+                    </div>
+                    <div class="col-3 key">
+                        <button class="btn btnOpt btn-large key-input-gray btn-block ">+</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script type="text/javascript" src="calculator.js"></script>
+
+
+
+</body>
+
+</html>
