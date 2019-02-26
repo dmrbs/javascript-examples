@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        .back {
+            background-color: aqua;
+            height: 140px;
+        }
+
+        .result {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3 back ">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ay bulma</label>
+                    <input type="text" class="form-control " id="text" placeholder="Lütfen bir sayı giriniz.">
+                </div>
+                <button onclick="myFunction()" class="btn btn-primary btn-block">Submit</button>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <p class="result text-center font-weight-bold" id="result"></p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function myFunction() {
+            var resultElement = document.getElementById("result");
+            var inputElement = document.getElementById("text");
+            var deger = Number(inputElement.value);
+            
+            var date = new Date();
+            var monthNumber = date.getMonth();
+
+
+            if (!isNaN(deger)) {
+
+                if (deger > 0 && deger < 13) {
+
+                    if (deger == 1) {
+                       
+                        resultElement.innerHTML = "OCAK";
+                    } else if (deger == 2) {
+                        resultElement.innerHTML = "ŞUBAT";
+                    }
+                    else if (deger == 3) {
+                        resultElement.innerHTML = "MART";
+                    }
+                    else if (deger == 4) {
+                        resultElement.innerHTML = "NİSAN";
+                    }
+                    else if (deger == 5) {
+                        resultElement.innerHTML = "MAYIS";
+                    }
+                    else if (deger == 6) {
+                        resultElement.innerHTML = "HAZİRAN";
+                    }
+                    else if (deger == 7) {
+                        resultElement.innerHTML = "TEMMUZ";
+                    }
+                    else if (deger == 8) {
+                        resultElement.innerHTML = "AĞUSTOS";
+                    }
+                    else if (deger == 9) {
+                        resultElement.innerHTML = "EYLÜL";
+                    }
+                    else if (deger == 10) {
+                        resultElement.innerHTML = "EKİM";
+                    }
+                    else if (deger == 11) {
+                        resultElement.innerHTML = "KASIM";
+                    }
+                    else {
+                        resultElement.innerHTML = "ARALIK";
+                    }
+
+                    if (deger == (monthNumber + 1)) {
+                            resultElement.classList.add("bg-danger");
+                    }else{
+                        resultElement.classList.remove("bg-danger");
+                    }
+
+
+
+                    // var tarih_goster = new Date();
+                    // alert(tarih_goster.toLocaleString());
+                    // resultElement.innerHTML = inputElement.value;
+
+                }
+                else {
+                    resultElement.innerHTML = "LÜtfen 1-12 arasında sayı giriniz";
+                }
+
+
+
+
+            }
+            else {
+
+                resultElement.innerHTML = "LÜtfen Sayı Giriniz";
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
