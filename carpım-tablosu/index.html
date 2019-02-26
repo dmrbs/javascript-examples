@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<!--<header>
+        <h1>Çarpım Tablosu</h1>
+    </header> -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+    h1 {
+        background-color: darkmagenta;
+        text-align: center;
+    }
+
+    .satirpanel {
+        margin-bottom: 10px;
+        border: 0.2em solid;
+    }
+
+    .sutunpanel {
+        background-color: aqua;
+        border: 0.2em solid;
+
+    }
+
+    p {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 offset-1" id="carpımtablosu">
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+
+        var carpımtablosu = document.getElementById("carpımtablosu");
+        var carpılan = 1;
+        for (var satır = 0; satır < 2; satır++) {
+            var tasarim = "<div class='row satirpanel'>";
+            tasarim += "<div class='col-1 '></div>"
+            for (var sutun = 1; sutun <= 5; sutun++) {
+                tasarim += '<div class="col-2 sutunpanel" >';
+                tasarim += '<p>'
+
+                for (var carpan = 1; carpan <= 10; carpan++) {
+                    tasarim += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>";
+                }
+                carpılan++;
+                tasarim += '</p></div> ';
+
+            }
+            tasarim += "</div>"
+
+
+
+            carpımtablosu.innerHTML += tasarim;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // var panel1 = document.getElementById("panel1");
+        // var panel2 = document.getElementById("panel2");
+        // var panel3 = document.getElementById("panel3");
+        // var panel4 = document.getElementById("panel4");
+        // var panel5 = document.getElementById("panel5");
+        // var panel6 = document.getElementById("panel6");
+        // var panel7 = document.getElementById("panel7");
+        // var panel8 = document.getElementById("panel8");
+        // var panel9 = document.getElementById("panel9");
+        // var panel10 = document.getElementById("panel10");
+
+        // var carpılan = 1;
+        // for (var carpan = 1; carpan <= 10; carpan++) {
+        //     panel1.innerHTML += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>";
+        // }
+        // carpılan++;
+        // for (var carpan = 1; carpan <= 10; carpan++) {
+        //     panel2.innerHTML += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>";
+        // }
+        // carpılan++;
+        // for (var carpan = 1; carpan <= 10; carpan++) {
+        //     panel3.innerHTML += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>";
+        // }
+        // carpılan++;
+        // for (var carpan = 1; carpan <= 10; carpan++) {
+        //     panel4.innerHTML += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>";
+        // }
+        // carpılan++;
+        // for (var carpan = 1; carpan <= 10; carpan++) {
+        //     panel5.innerHTML += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>";
+        // }
+        // carpılan++;
+        // for (var carpan = 1; carpan <= 10; carpan++) {
+        //     panel6.innerHTML += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>";
+        // }
+        // carpılan++;
+        // for (var carpan = 1; carpan <= 10; carpan++) {
+        //     panel7.innerHTML += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>";
+        // }
+        // carpılan++;
+        // for (var carpan = 1; carpan <= 10; carpan++) {
+        //     panel8.innerHTML += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>"
+        // }
+        // carpılan++;
+        // for (var carpan = 1; carpan <= 10; carpan++) {
+        //     panel9.innerHTML += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>"
+        // }
+        // carpılan++;
+        // for (var carpan = 1; carpan <= 10; carpan++) {
+        //     panel10.innerHTML += carpılan + " x " + carpan + " =" + carpılan * carpan + "<br>";
+        // }
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
