@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>hesapoyunu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .game-panel {
+            background-color: deepskyblue;
+            text-align: center;
+        }
+
+        .game-input {
+            background-color: floralwhite;
+            text-align: center;
+        }
+
+        .game-title {
+            margin-top: 5px;
+            margin-bottom: 7px;
+            width: 100%;
+            border: 5px solid fuchsia;
+            /* Kenar kalınlığı, şekli ve rengi */
+            font-weight: 800;
+
+        }
+
+
+
+        .game-opt-text {
+            font-size: 125%;
+            padding: 10px;
+        }
+
+
+
+        .game-button {
+            padding: 5px;
+            border: none;
+            width: 100px;
+            background: rgb(0, 143, 124);
+            color: #fff;
+        }
+
+        .game-button-red {
+            background-color: red;
+        }
+
+        .game-button:hover {
+            background: #8BC34A;
+        }
+
+        .game-button-red:hover {
+            background-color: black;
+        }
+
+        .game-result-panel {
+            font-size: 150%;
+            margin-top: 10px;
+
+            display: inline-block;
+        }
+
+        .true-count-panel {
+            background: rgb(67, 245, 73);
+        }
+
+        .false-count-panel {
+            background: rgb(255, 0, 0);
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-10 offset-1 game-panel">
+                <div class="row">
+                    <div class="col-12 col-sm game-title">
+                        <p class="h1 ">Dört İşlem Matematik Oyunu</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-8 ">
+                        <div class="row">
+                            <div class="col-4 col-md-3 col-sm-3">
+                                <div class="form-group">
+                                    <input class="form-control game-input" type="number" id="ilksayi" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="col-4  col-md-1 col-sm-1"> <span class="game-opt-text" id="opt">+</span></div>
+
+                            <div class="col-4 col-md-3 col-sm-3">
+                                <div class="form-group"><input class="form-control game-input" type="number"
+                                        id="ikincisayi" placeholder="0">
+                                </div>
+                            </div>
+
+                            <div class="col-12  col-md-1 col-sm-1"> <span class="game-opt-text">=</span></div>
+
+                            <div class="col-8 offset-2 col-md-3 offset-md-0 col-sm-4 offset-sm-0">
+                                <div class="form-group"> <input class="form-control game-input " id="sonuc"
+                                        placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-12 col-sm-0 col-md-4">
+                        <div class="row">
+                            <div class="col-6 ">
+                                <input type="button" class="btn btn-block game-button" id="cevap" value="Cevap">
+                            </div>
+                            <div class="col-6 ">
+                                <input type="button" class="btn btn-block game-button game-button-red" value="TEMİZLE">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-8 offset-2 ">
+                        <div class="game-result-panel true-count-panel"  >Doğru Cevap : <span id="dogru">0</span></div>
+                        <div class="game-result-panel false-count-panel " >Yanlış Cevap : <span id="yanlis">0</span></div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="fourmodequal.js"></script>
+
+</body>
+
+</html>
