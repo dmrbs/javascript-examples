@@ -1,14 +1,14 @@
-var ilksayi, ikincisayi, dogru = 0, yanlis = 0, sonuc, cevap, opt;
+var ilksayiElementi, ikincisayiElementi, dogru = 0, yanlis = 0, sonuc, cevap, opt,temizle;
 
 //HTML nesnelerinin oluşturulması
-ilksayi = document.getElementById("ilksayi");
-ikincisayi = document.getElementById("ikincisayi");
+ilksayiElementi = document.getElementById("ilksayi");
+ikincisayiElementi = document.getElementById("ikincisayi");
 opt = document.getElementById("opt");
 sonuc = document.getElementById("sonuc");
 cevap = document.getElementById("cevap");
 dogru = document.getElementById("dogru");
 yanlis = document.getElementById("yanlis");
-
+temizle =document.getElementById("temizle");
 ///rastgele sayı üretme fonksiyonu
 //https://www.yazilimbilisim.net/javascript/javascript-rastgele-sayi-uretme/
 Math.rastgele = function (alt, ust) {
@@ -18,6 +18,7 @@ Math.rastgele = function (alt, ust) {
 
     return sayi;
 }
+debugger;
 //oyun başladığında yada soru tahmin edildiğinde yeni soru sormak için kullanılır.
 function yeniSoru() {
     let islem = ["+", "-", "*", "/"];
@@ -29,8 +30,8 @@ function yeniSoru() {
     if (opt.textContent == "/") {
          first =first*second;
     }
-    ilksayi.value =first;
-    ikincisayi.value = second;
+    ilksayiElementi.value =first;
+    ikincisayiElementi.value = second;
 
 
 
@@ -43,11 +44,13 @@ window.onload = function () {
    
 }
 
+
+debugger;
 //cevapla butonuna basıldığında değerlendirme işlemi
 cevap.onclick = function () {
     let cevap, ils, iks;
-    ils = Number(ilksayi.value);
-    iks = Number(ikincisayi.value);
+    ils = Number(ilksayiElementi.value);
+    iks = Number(ikincisayiElementi.value);
     switch (opt.textContent) {
         case '+': cevap = ils + iks; break;
         case "-": cevap = ils - iks; break;
@@ -64,4 +67,13 @@ cevap.onclick = function () {
     }
 
     yeniSoru();
+}
+temizle.onclick = function () {
+    {
+    sonuc.value="";
+    dogru.textContent="0";
+    yanlis.textContent="0";
+    
+}
+yeniSoru();
 }
