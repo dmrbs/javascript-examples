@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        .back {
+            background-color: aqua;
+            height: 140px;
+        }
+
+        .result {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3 back ">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Asal Sayı Bulma</label>
+                    <input type="text" class="form-control " id="text" placeholder="Lütfen bir sayı giriniz.">
+                </div>
+                <button onclick="myFunction()" class="btn btn-primary btn-block">Submit</button>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <p class="result text-center font-weight-bold" id="result"></p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function myFunction() {
+            var resultElement = document.getElementById("result");
+            var inputElement = document.getElementById("text");
+            var deger = Number(inputElement.value);
+
+
+
+
+
+            if (!isNaN(deger)) {
+
+
+
+
+
+                var asalsayimi = true;
+                for (var sayac = 2; sayac < deger; sayac++) {
+debugger
+                    if (deger % sayac == 0) {
+                        asalsayimi = false;
+                    }
+
+                }
+                if(asalsayimi){
+                    resultElement.innerHTML="Bu Bir asal sayıdır"
+                }else{
+                    resultElement.innerHTML="Bu Bir asal değildir"
+                }
+
+
+
+
+
+            }
+            else {
+
+                resultElement.innerHTML = "LÜtfen Sayı Giriniz";
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
