@@ -1,0 +1,17 @@
+.maincolor {
+    background-color: rgb(204, 238, 82);
+}
+.todo-item{
+    background-color:coral;
+    border-radius: 25px;
+    display:flex;
+    align-items: center;
+    height: 35px;
+    margin-top: 5px;
+
+}
+.todos_panel{
+    height: 500px;
+}
+
+
