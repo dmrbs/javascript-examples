@@ -11,9 +11,6 @@ var todos = new Array();
 //her yeni bir yapılacak iş oluşturulduğunda otomatik artar.
 var counter = 0;
 
-//kullanıcının değer girmesini sağlayan etiketinin tuşa anlık basılma durumunu yakalıyor.
-
-
 
 // hafızaya kaydedilen verileri değişkene atadı.
 var saveData = JSON.parse(localStorage.saveData || null) || {};
@@ -31,8 +28,6 @@ if (saveData.time) {
         //kaydedilen datalar şuanki todos(array) listesine eklendi
         todos.push(todo);
 
-
-
     }
 
 
@@ -49,17 +44,10 @@ if (saveData.time) {
         counter = maxValue;
     }
 
-
-
-
-
-
-    
-
-
 }
 //#endregion
 
+//kullanıcının değer girmesini sağlayan etiketinin tuşa anlık basılma durumunu yakalıyor.
 textBox.onkeypress = function (event) {
     //13 no'lu keykode 'ENTER'a eşittir.
     if (event.keyCode == 13) {//Eğer entera basıldıysa alt taraftaki kodu çalıştır
@@ -95,7 +83,6 @@ textBox.onkeypress = function (event) {
         event.preventDefault();
     }
 }
-
 
 
 //TODO objesi oluşturuldu.Kod tekrarlanmasını engellemek için tek bir obje içerisinde yazıp her istediğimiz yerde kullanmak için kolaylık sağladı.
@@ -153,7 +140,6 @@ function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun i�
 
         }
 
-
         //#region Content Tick Bölümü
         //sağ tarafın içerisine "x" işareti eklendi
         var contentTick = document.createElement("i");
@@ -208,14 +194,9 @@ function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun i�
         todosPanel.appendChild(todo_item);
 
 
-
     };
 
-
 }
-
-
-
 
 // hafızaya kaydetme methodu
 function saveStuff(obj) {//obje olarak todos listesini(arrayleri) kaydediyoruz.
