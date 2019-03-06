@@ -11,6 +11,11 @@ var todos = new Array();
 //her yeni bir yapılacak iş oluşturulduğunda otomatik artar.
 var counter = 0;
 
+var btnClear = document.getElementById("btnClear");
+btnClear.onclick = function () {
+   saveStuff(""); 
+   location.reload();
+}
 
 // hafızaya kaydedilen verileri değişkene atadı.
 var saveData = JSON.parse(localStorage.saveData || null) || {};
