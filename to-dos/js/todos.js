@@ -10,6 +10,7 @@ var todos = new Array();
 //yapılacaklar listesindeki elemanların benzersiz olmasını sağlayan sayaç-
 //her yeni bir yapılacak iş oluşturulduğunda otomatik artar.
 var counter = 0;
+
 //kullanıcının değer girmesini sağlayan etiketinin tuşa anlık basılma durumunu yakalıyor.
 
 
@@ -29,10 +30,33 @@ if (saveData.time) {
 
         //kaydedilen datalar şuanki todos(array) listesine eklendi
         todos.push(todo);
-        
-        counter = todos.length;
+
+
+
     }
-  
+
+
+    if (todos.length > 0) {
+        var maxValue = 0;
+        var currentnumber = 0;
+        for (let i = 0; i < todos.length; i++) {//sadece döngü sayılar kaç tane ise o kadar döner ve her seferinde i yi artırır . i sayısını da sayilar(arrau)'ın bir sonraki elemanı için kullanıbilir 
+            currentNumber = todos[i].Id;
+            if (currentNumber > maxValue) {
+                maxValue = currentNumber;
+            }
+
+        }debugger;
+        counter = maxValue;
+    }
+
+
+
+
+
+
+    
+
+
 }
 //#endregion
 
@@ -120,8 +144,8 @@ function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun i�
                 var item = todos[i];
                 if (item.Id == todoRemove.getAttribute("ali")) {
                     todosPanel.removeChild(todo_item);
-                    todos.splice(todos.indexOf(item),1);
-                    
+                    todos.splice(todos.indexOf(item), 1);
+
                     saveStuff(todos);
                     break;
                 }
@@ -157,6 +181,7 @@ function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun i�
                     item.Back = "gray";
                     item.Completed = true;
                     // o anki todoların durumları kaydedildi.
+                    contentTickcol.appendChild(todoRemove);
                     saveStuff(todos);
                     break;
                 }
