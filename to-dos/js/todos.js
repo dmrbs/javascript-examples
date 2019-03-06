@@ -13,8 +13,26 @@ var counter = 0;
 
 var btnClear = document.getElementById("btnClear");
 btnClear.onclick = function () {
-   saveStuff(""); 
-   location.reload();
+    Swal.fire({
+        title: 'Silmek istiyor musunuz?',
+        text: "Bu değişiklikleri geri alamazsınız.",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.value) {
+            saveStuff("");
+
+        
+                location.reload();
+
+
+        }
+
+    })
+
 }
 
 // hafızaya kaydedilen verileri değişkene atadı.
@@ -77,8 +95,10 @@ textBox.onkeypress = function (event) {
                 title: 'Başarılı!',
                 text: 'Yeni Göreviniz Başarıyla Eklendi',
                 type: 'success',
-                confirmButtonText: 'Kapat'
-              })
+                confirmButtonText: 'Kapat',
+                animation: false,
+                customClass: 'animated tada'
+            })
         } else {
             //hiç bir değer girilmediğinde ,kullancıya alan boş geçilemez uyarısını belirtir.
             alert("Alan boş geçilemez.");
@@ -89,7 +109,7 @@ textBox.onkeypress = function (event) {
     }
 
     //textBox'ın karakter sayısı 28'i geçmesi halinde kullanıcıya uyarı verir.
-   
+
 }
 
 
@@ -117,13 +137,13 @@ function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun i�
         contentArea.classList.add("col-11");
         contentArea.classList.add("content-area");
         var contentTickcol = document.createElement("div");
-        contentTickcol.className="col-1";
+        contentTickcol.className = "col-1";
 
 
         //sol tarafın içerisine todonun parametre ile gelen değeri "span" etiketi içerisinde eklendi.
         var contentSpan = document.createElement("span");
         contentSpan.innerHTML = this.Content;
-        
+
         contentArea.appendChild(contentSpan);
 
 
@@ -140,28 +160,28 @@ function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun i�
             for (let i = 0; i < todos.length; i++) {
                 var item = todos[i];
                 if (item.Id == todoRemove.getAttribute("ali")) {
-                    
-                    var pos=todo_item.clientWidth;
-                    var heigth =todo_item.clientHeight;
+
+                    var pos = todo_item.clientWidth;
+                    var heigth = todo_item.clientHeight;
                     var id = setInterval(frame, 1);
                     function frame() {
-                      if (pos == 0) {
-                        clearInterval(id);
+                        if (pos == 0) {
+                            clearInterval(id);
 
-                        todosPanel.removeChild(todo_item);
-                        todos.splice(todos.indexOf(item), 1);
-    
-                        saveStuff(todos);
-                      } else {
-                        pos-=4; 
-                        
-                    
-                        todo_item.style='width:'+pos+'px; height:'+heigth+'px'; 
-                      }
+                            todosPanel.removeChild(todo_item);
+                            todos.splice(todos.indexOf(item), 1);
+
+                            saveStuff(todos);
+                        } else {
+                            pos -= 4;
+
+
+                            todo_item.style = 'width:' + pos + 'px; height:' + heigth + 'px';
+                        }
                     }
-                    
-                    
-                
+
+
+
 
 
                     break;
