@@ -28,14 +28,6 @@
         <div class=row>
             <div class="col-12">
                 <p style="text-align:center">
-                    <font color="red">Enter text into the input field to add items to your list.(max.28 character.)
-                    </font>
-                </p>
-            </div>
-        </div>
-        <div class=row>
-            <div class="col-12">
-                <p style="text-align:center">
                     <font color="green">Click the item to mark it as complete</font>
                 </p>
             </div>
@@ -50,32 +42,31 @@
         </div>
 
         <div class=row>
-            <div class="col-10">
-                <input class="form-control" id="texting" type="text" placeholder="New item...">
-            </div>
-            <div class="col-2">
-                <div class="form-group">
-                    <button class="btn btn-primary btn-block" type="button" id="btnClear">
-                        <i class="fas fa-pencil-alt"></i> Temizle
-                    </button>
+            <div class="col-8 offset-2">
+                <div class="row">
+                    <div class="col-10">
+                        <input class="form-control" id="texting" type="text" placeholder="New item...">
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="button" id="btnClear">
+                                <i class="fas fa-broom"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
 
-
-
         </div>
-        <div class="col-8 offset-2 " id="todos_panel">
-
-          
-
+        <div class="row">
+            <div class="col-8 offset-2 " id="todos_panel"></div>
 
         </div>
 
 
-
-
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
         <script src="js/todos.js"></script>
 
 

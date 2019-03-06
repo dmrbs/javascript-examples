@@ -45,7 +45,7 @@ if (saveData.time) {
                 maxValue = currentNumber;
             }
 
-        }debugger;
+        }
         counter = maxValue;
     }
 
@@ -63,7 +63,7 @@ textBox.onkeypress = function (event) {
             //Id'sinin benzersiz olmasını sağlayan sayaç birer birer artıyor.
             counter++;
             //yeni bir TODO objesi oluşturup değişkene atadık.
-            var todo = new TODO(counter, textBox.value, false, "aqua");//TODO'nun benzersiz Id'si,o anki textBox değeri ,tamamlandı mı durumu ve arkaplan rengi parametre olarak gönderildi
+            var todo = new TODO(counter, textBox.value, false, "pink");//TODO'nun benzersiz Id'si,o anki textBox değeri ,tamamlandı mı durumu ve arkaplan rengi parametre olarak gönderildi
 
             //todo'nun kendini oluşturup,todos panelinin içerisine ekliyor.
             todo.KendiniOlustur();
@@ -72,6 +72,13 @@ textBox.onkeypress = function (event) {
             todos.push(todo);
             //todos'un o an ki durumu kaydedediliyor . (localstorage.saveData özelliği içerisine kaydedilir.) Sayfa yenilendiğinde verilerin kaybolmasını engelller
             saveStuff(todos);
+
+            Swal.fire({
+                title: 'Başarılı!',
+                text: 'Yeni Göreviniz Başarıyla Eklendi',
+                type: 'success',
+                confirmButtonText: 'Kapat'
+              })
         } else {
             //hiç bir değer girilmediğinde ,kullancıya alan boş geçilemez uyarısını belirtir.
             alert("Alan boş geçilemez.");
@@ -82,11 +89,7 @@ textBox.onkeypress = function (event) {
     }
 
     //textBox'ın karakter sayısı 28'i geçmesi halinde kullanıcıya uyarı verir.
-    if (textBox.value.length > 28) {
-        alert("28 karakterden fazla giremezsiniz.");
-        //textBox'ın içerisinde tuşa basıldığında yapması gereken işlem(sayı,yazı ve herhangi bi karakterin textBoxın içine yazması) engelleniyor
-        event.preventDefault();
-    }
+   
 }
 
 
@@ -112,13 +115,15 @@ function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun i�
         // row kısmını sağ ve sol (col-11 ve col-1)şeklinde ayrıldı.
         var contentArea = document.createElement("div");
         contentArea.classList.add("col-11");
+        contentArea.classList.add("content-area");
         var contentTickcol = document.createElement("div");
-        contentTickcol.classList.add("col-1");
+        contentTickcol.className="col-1";
 
 
         //sol tarafın içerisine todonun parametre ile gelen değeri "span" etiketi içerisinde eklendi.
         var contentSpan = document.createElement("span");
         contentSpan.innerHTML = this.Content;
+        
         contentArea.appendChild(contentSpan);
 
 
@@ -135,10 +140,30 @@ function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun i�
             for (let i = 0; i < todos.length; i++) {
                 var item = todos[i];
                 if (item.Id == todoRemove.getAttribute("ali")) {
-                    todosPanel.removeChild(todo_item);
-                    todos.splice(todos.indexOf(item), 1);
+                    
+                    var pos=todo_item.clientWidth;
+                    var heigth =todo_item.clientHeight;
+                    var id = setInterval(frame, 1);
+                    function frame() {
+                      if (pos == 0) {
+                        clearInterval(id);
 
-                    saveStuff(todos);
+                        todosPanel.removeChild(todo_item);
+                        todos.splice(todos.indexOf(item), 1);
+    
+                        saveStuff(todos);
+                      } else {
+                        pos-=4; 
+                        
+                    
+                        todo_item.style='width:'+pos+'px; height:'+heigth+'px'; 
+                      }
+                    }
+                    
+                    
+                
+
+
                     break;
                 }
             }
@@ -161,7 +186,7 @@ function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun i�
             //todosPanel.removeChild(todo_item);
 
             //todo_item'in backgorund'u gri olarak değiştirildi.
-            todo_item.style = "background-color:gray";
+            todo_item.style = "background-color:lightgreen";
             //mevcut todo'ların içerisinde şu an tıkladığımız 'x' işaretinin Id'si ile eşit olan todo var mı kontrolü 
             for (let i = 0; i < todos.length; i++) {//todoların sayısı kadar döngü belirlendi
                 //todos elemanaları tek tek bir değişkene atandı.
@@ -169,7 +194,7 @@ function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun i�
                 //tick'in içerisine kaydedilen Id'nin todoların içerisindeki itemleri Id'sine eşit olma durumu kontorl edildi.
                 if (contentTick.getAttribute("data-id") == item.Id) {
                     //eğer eşit ise itemin tamamlandı ve back özellikleri değiştirildi..
-                    item.Back = "gray";
+                    item.Back = "lightgreen";
                     item.Completed = true;
                     // o anki todoların durumları kaydedildi.
                     contentTickcol.appendChild(todoRemove);

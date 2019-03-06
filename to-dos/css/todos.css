@@ -1,17 +1,29 @@
 .maincolor {
-    background-color: rgb(204, 238, 82);
+    background-color:lightsteelblue;
 }
 .todo-item{
-    background-color:coral;
-    border-radius: 25px;
+    background-color:pink;
+    border-radius: 5px;
     display:flex;
     align-items: center;
-    height: 35px;
-    margin-top: 5px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
-.todos_panel{
-    height: 500px;
+#todos_panel{
+    padding-bottom: 20px;
+
 }
-
-
+.content-area{
+    padding: 10px;
+}
+.animate{
+    position: absolute;
+    width: 100%;
+  
+}
+.animate-todos{
+    position: relative;
+   
+  
+}
