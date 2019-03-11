@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .title {
+            border-top-right-radius: 25px;
+            border-top-left-radius: 25px;
+            background-color: lightgreen;
+            text-align: center;
+            height: 70px;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3  ">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title">
+                            <h1 class="font-weight-light font-italic">Ders Ortalama Hesaplama</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-12 ">
+
+                        <div class=row>
+                            <div class="col-6 ">
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="Vize Notu"
+                                                id="vizen">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="Vize Yüzdesi"
+                                                id="vizey">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6 ">
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="Final Notu"
+                                                id="finaln">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="Final Yüzdesi"
+                                                id="finaly">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+
+                                    <div class="col-12">
+                                        <button type="button" class="btn btn-outline-success btn-block"
+                                            id="kontrol">Hesapla</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script type="text/javascript">
+        var dersort = document.getElementById("dersort");
+        var kontrol = document.getElementById("kontrol");
+        var vizen = document.getElementById("vizen");
+        var vizey = document.getElementById("vizey");
+        var finaln = document.getElementById("finaln");
+        var finaly = document.getElementById("finaly");
+
+
+
+
+
+        kontrol.onclick = function () {
+
+            var hatamesajı = "";
+            hatamesajı += valideet("Vize alanı", vizen.value);
+            hatamesajı += valideet("Vize Yüzde", vizey.value);
+            hatamesajı += valideet("Final alanı", finaln.value);
+            hatamesajı += valideet("Final yüzde", finaly.value);
+
+            if(hatamesajı!=""){
+                Swal.fire({
+                    type: 'error',
+                    title: 'Hata',
+                    html: ""+hatamesajı,
+
+                })
+                return; 
+            }
+
+
+
+            if (Number(vizey.value) + Number(finaly.value) != 100) {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Hata',
+                    text: 'Yüzde oranlarını doğru giriniz',
+
+                })
+                return;
+            }
+
+
+
+
+
+
+
+            var ortalama = vizen.value * (vizey.value / 100) + finaln.value * (finaly.value / 100);
+            if (ortalama > 50) {
+                Swal.fire({
+                    title: 'Tebrikler Dersten geçtiniz :))',
+                    width: 300,
+                    padding: '3em',
+                    background: '#fff url(https://sweetalert2.github.io/images/trees.png)',
+                    backdrop: `
+    rgba(0,0,123,0.4)
+    url("https://media.giphy.com/media/3oz8xAFtqoOUUrsh7W/giphy.gif")
+    center left
+    no-repeat
+  `
+                })
+            } else if (ortalama > 40 && ortalama < 50) {
+                Swal.fire({
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'Sorunlu geçtiniziz :)',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            } else {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Dersten Kaldınız',
+                    text: 'Önümüzdeki sene hallerdersiniz :/',
+
+                })
+            }
+        }
+
+        function valideet(title, value) {
+            var message="";
+            if (value == "") {
+               message=message+ " "+title + " değeri boş geçilemez </br>";
+            }
+            if (value < 0) {
+                message=message+ " "+title + " değeri sıfırdan küçük olamaz </br>";
+            }
+            return message;
+        }
+    </script>
+</body>
+
+</html>
