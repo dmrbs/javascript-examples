@@ -1,0 +1,22 @@
+.size{
+    margin-top: 20px;
+
+}
+
+.title {
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    background-color: lightgreen;
+    text-align: center;
+    height: 70px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.loginbg{
+    background-color:lightblue;
+    margin-bottom: 10px;
+}
+.passwordreply{
+    margin-top: 18px;
+}

@@ -1,3 +1,6 @@
+
+
+
 //#region sayfa ilk yüklendiğinde çalışcak kodlar
 
 // kullanıcın değer girmesini sağlayan html elementini değikene atadık
@@ -10,6 +13,17 @@ var todos = new Array();
 //yapılacaklar listesindeki elemanların benzersiz olmasını sağlayan sayaç-
 //her yeni bir yapılacak iş oluşturulduğunda otomatik artar.
 var counter = 0;
+var btnExit = document.getElementById("btnExit");
+btnExit.onclick=function(){
+    saveData.isLogin=false;
+    saveData.time = new Date().getTime();
+    localStorage.saveData = JSON.stringify(saveData);
+
+    window.location.pathname ="///C:/Users/kaand/Desktop/proje/javascript-example/to-dos/login.html";
+
+}
+
+
 
 var btnClear = document.getElementById("btnClear");
 btnClear.onclick = function () {
@@ -37,6 +51,13 @@ btnClear.onclick = function () {
 
 // hafızaya kaydedilen verileri değişkene atadı.
 var saveData = JSON.parse(localStorage.saveData || null) || {};
+
+debugger
+if(saveData.isLogin!=true){
+    window.location.pathname = "C:/Users/kaand/Desktop/proje/javascript-example/to-dos/login.html";
+}
+
+
 
 if (saveData.time) {
     //kaydedilen verilerin içerisindeki obje(todos olarak kaydetmiştik) sayısı kadar döngü
@@ -80,7 +101,7 @@ textBox.onkeypress = function (event) {
         if (textBox.value.length > 0) {
             //Id'sinin benzersiz olmasını sağlayan sayaç birer birer artıyor.
             counter++;
-            //yeni bir TODO objesi oluşturup değişkene atadık.
+            //yeni bir yapılacak objesi oluşturup değişkene atadık.
             var todo = new TODO(counter, textBox.value, false, "pink");//TODO'nun benzersiz Id'si,o anki textBox değeri ,tamamlandı mı durumu ve arkaplan rengi parametre olarak gönderildi
 
             //todo'nun kendini oluşturup,todos panelinin içerisine ekliyor.
@@ -113,7 +134,7 @@ textBox.onkeypress = function (event) {
 }
 
 
-//TODO objesi oluşturuldu.Kod tekrarlanmasını engellemek için tek bir obje içerisinde yazıp her istediğimiz yerde kullanmak için kolaylık sağladı.
+// yapılacak objesi oluşturuldu.Kod tekrarlanmasını engellemek için tek bir obje içerisinde yazıp her istediğimiz yerde kullanmak için kolaylık sağladı.
 function TODO(Id, content, completed, back) {//Özel belirlenilen Id,todo'nun içeriği,yapılacakları kontrol(bitip,bitmemesi) amaçlı eklendi,arka plan rengi.
 
     // objenin özelliklerine parametre ile gelen değerler atanıyor
