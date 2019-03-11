@@ -19,7 +19,7 @@ btnExit.onclick=function(){
     saveData.time = new Date().getTime();
     localStorage.saveData = JSON.stringify(saveData);
 
-    window.location.pathname ="///C:/Users/kaand/Desktop/proje/javascript-example/to-dos/login.html";
+    window.location.href ="login.html";
 
 }
 
@@ -54,7 +54,7 @@ var saveData = JSON.parse(localStorage.saveData || null) || {};
 
 debugger
 if(saveData.isLogin!=true){
-    window.location.pathname = "C:/Users/kaand/Desktop/proje/javascript-example/to-dos/login.html";
+    window.location.href = "login.html";
 }
 
 

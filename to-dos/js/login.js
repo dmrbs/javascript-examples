@@ -3,7 +3,7 @@ var sifre = document.getElementById("inputPassword");
 var giris = document.getElementById("giris");
 var register = document.getElementById("register");
 register.onclick=function(){
-    window.location.pathname ="///C:/Users/kaand/Desktop/proje/javascript-example/to-dos/register.html";
+    window.location.href ="register.html";
 }
 
 
@@ -17,7 +17,7 @@ giris.onclick = function (giris) {
         saveData.time = new Date().getTime();
         localStorage.saveData = JSON.stringify(saveData);
     
-        window.location.pathname ="///C:/Users/kaand/Desktop/proje/javascript-example/to-dos/index.html";
+        window.location.href ="index.html";
 
     } else {
         alert("yanlis");
