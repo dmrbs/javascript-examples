@@ -1,69 +1,82 @@
 var btncalistir = document.getElementById("calistir");
 var btnhizlan = document.getElementById("hizlan");
-var btnvites = document.getElementById("vites");
+
 var btnyavasla = document.getElementById("yavasla");
 var btnspeedtext = document.getElementById("speedtext");
 var vitesgosterge = document.getElementById("vitesgosterge");
 
-var vitesdurumu = 0;
 
-
-
-var arabacalisiyormu = false;
-
+var araba = new Car();
 
 
 btnyavasla.onclick = function () {
-    if (!(Number(btnspeedtext.innerHTML) <= 0)) {
-
-        btnspeedtext.innerHTML = Number(btnspeedtext.innerHTML) - 5;
-        if (((vitesdurumu - 1) * 25) > Number(btnspeedtext.innerHTML)) {
-            vitesdurumu--;
-            vitesgosterge.innerHTML = vitesdurumu;
-        }
-    } else {
-        vitesdurumu = 0;
-        vitesgosterge.innerHTML = 0;
-    }
-
+    araba.SlowDown();
+    btnspeedtext.innerText = araba.Speed;
+    vitesgosterge.innerHTML = araba.vites;
 }
-
-
-
-
-
-
-btnvites.onclick = function () {
-    if (arabacalisiyormu == false) {
-        alert("arabayı çalıştırın");
-        return;
-    }
-
-    if (vitesdurumu < 6) {
-        vitesdurumu++;
-        vitesgosterge.innerHTML = vitesdurumu;
-    }
-
-}
-
 
 btnhizlan.onclick = function () {
-    if (arabacalisiyormu) {
-        if (Number(btnspeedtext.innerHTML) < vitesdurumu * 25) {
-            btnspeedtext.innerHTML = Number(btnspeedtext.innerHTML) + 5;
-        } else if (vitesdurumu == 0) {
-            alert("Araba Boşta")
-        }
-    } else {
-        alert("araba çalışmıyor.")
-    }
-}
+    var gittimi = araba.MoveForward();
+    if (gittimi) {
 
+        btnspeedtext.innerText = araba.Speed;
+
+        vitesgosterge.innerHTML = araba.vites;
+
+    }
+
+}
 
 
 btncalistir.onclick = function () {
-    arabacalisiyormu = true;
+    araba.Run();
 
 }
 
 
+function Car() {
+    this.Speed = 0;
+    this.vites = 0;
+    this.SlowDown = 0;
+    this.VitesHızGücü = 50;
+    this.isRunning = false;
+
+    this.Run = function () {
+        this.isRunning = true;
+        vites++;
+    }
+
+
+
+
+    this.MoveForward = function () {
+        if (!this.isRunning) {
+            alert("Araba Çalışmıyor")
+            return false;
+        }
+
+
+
+        if (this.Speed < 6 * this.VitesHızGücü) {
+            this.Speed += 5;
+            if (this.Speed > this.vites * this.VitesHızGücü) {
+                this.vites++;
+
+            }
+        }
+        return true;
+
+    }
+    this.SlowDown = function () {
+        if (!(this.Speed == 0)) {
+            this.Speed -= 5;
+            if (this.Speed % this.VitesHızGücü == 0) {
+                this.vites--;
+
+            }
+
+        }
+    }
+
+
+}
